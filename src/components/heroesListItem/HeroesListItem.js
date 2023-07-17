@@ -1,6 +1,8 @@
+import { useDispatch, useSelector } from 'react-redux';
+
+import { heroDeleted } from '../../actions';
 
 const HeroesListItem = ({ name, description, element }) => {
-
   let elementClassName;
 
   switch (element) {
@@ -20,6 +22,17 @@ const HeroesListItem = ({ name, description, element }) => {
       elementClassName = 'bg-warning bg-gradient';
   }
 
+  const dispatch = useDispatch();
+  const { heroes } = useSelector(state => state);
+
+  const handleDeleteButton = (heroes) => {
+    //! Дернуть айдишник текущего элемента и прокидывать в слайс
+    const newHeroes = heroes.slice(0, ).concat(heroes.slice());
+    console.log(heroes);
+    console.log(newHeroes);
+    dispatch(heroDeleted(newHeroes));
+  }
+
   return (
     <li
       className={`card flex-row mb-4 shadow-lg text-white ${elementClassName}`}>
@@ -32,7 +45,10 @@ const HeroesListItem = ({ name, description, element }) => {
         <h3 className="card-title">{name}</h3>
         <p className="card-text">{description}</p>
       </div>
-      <span className="position-absolute top-0 start-100 translate-middle badge border rounded-pill bg-light">
+      <span onClick={() => {
+        console.log("deleting");
+        handleDeleteButton(heroes);
+      }} className="position-absolute top-0 start-100 translate-middle badge border rounded-pill bg-light">
         <button type="button" className="btn-close btn-close" aria-label="Close"></button>
       </span>
     </li>
