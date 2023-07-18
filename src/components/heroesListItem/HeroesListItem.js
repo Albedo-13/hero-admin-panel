@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { heroDeleted } from '../../actions';
 
-const HeroesListItem = ({ name, description, element }) => {
+const HeroesListItem = ({ id, name, description, element }) => {
   let elementClassName;
 
   switch (element) {
@@ -26,11 +26,8 @@ const HeroesListItem = ({ name, description, element }) => {
   const { heroes } = useSelector(state => state);
 
   const handleDeleteButton = (heroes) => {
-    //! Дернуть айдишник текущего элемента и прокидывать в слайс
-    const newHeroes = heroes.slice(0, ).concat(heroes.slice());
-    console.log(heroes);
-    console.log(newHeroes);
-    dispatch(heroDeleted(newHeroes));
+    const filteredHeroes = heroes.filter((hero) => hero.id !== id);
+    dispatch(heroDeleted(filteredHeroes));
   }
 
   return (
