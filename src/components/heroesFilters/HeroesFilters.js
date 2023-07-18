@@ -26,22 +26,13 @@ const HeroesFilters = () => {
   }, []);
 
   const renderFiltersList = () => {
-    return filters.map(({ name, label, classname }) => {
-      return (
-        <button onClick={() => onFilterClick(name)} name={name} key={name} className={classname}>{label}</button>
-      );
-    });
-    // <button className="btn btn-outline-dark active">Все</button>
-    // <button className="btn btn-danger">Огонь</button>
-    // <button className="btn btn-primary">Вода</button>
-    // <button className="btn btn-success">Ветер</button>
-    // <button className="btn btn-secondary">Земля</button>
-  }
-
-  const onFilterClick = (name) => {
-    console.log(name);
-    dispatch(activeFilterChanged(name));
-
+    return filters.map(({ name, label, classname }) =>
+      <button
+        onClick={() => dispatch(activeFilterChanged(name))}
+        name={name}
+        key={name}
+        className={classname}
+      >{label}</button>);
   }
 
   return (

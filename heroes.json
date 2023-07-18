@@ -1,34 +1,94 @@
 {
   "heroes": [
     {
-      "id": "04a4aabc-2df2-4f86-b233-6a907218396f",
-      "name": "dada",
-      "description": "dad",
-      "element": "fire"
-    },
-    {
       "id": "3325f48c-3055-41c6-9567-9f56bbbb502b",
       "name": "test",
       "description": "test",
       "element": "wind"
     },
     {
-      "id": "e41f03b7-c99b-4e33-ba7c-2762572b0cef",
+      "id": "e2ad1283-f7bd-4f79-be60-be572a622664",
       "name": "test",
       "description": "test",
+      "element": "fire"
+    },
+    {
+      "id": "37c68fd4-3a8b-4769-b1ae-d15ad790da8e",
+      "name": "321",
+      "description": "321",
+      "element": "water"
+    },
+    {
+      "id": "1d6b4c2d-3b44-433b-aad7-23423a283e6a",
+      "name": "Aquaman",
+      "description": "321",
+      "element": "earth"
+    },
+    {
+      "id": "027f57f7-2f8f-44d9-a812-05366bc79118",
+      "name": "sadsa",
+      "description": "dsad",
+      "element": "DEFAULT"
+    },
+    {
+      "id": "25892256-b373-40ae-bdb1-41fdb8f4012e",
+      "name": "Aquaman",
+      "description": "dasdsa",
+      "element": "fire"
+    },
+    {
+      "id": "024893d1-3f9b-415a-a9a6-d12d13afb6e6",
+      "name": "231321",
+      "description": "dsadsa",
+      "element": "fire"
+    },
+    {
+      "id": "3798c26a-cb9d-4520-9c71-e1a9b7256acc",
+      "name": "dsadasd",
+      "description": "dsad",
       "element": "wind"
     },
     {
-      "id": "88dde508-e4b9-48d5-88a1-7cc8b10d1320",
-      "name": "test",
-      "description": "test",
+      "id": "971d15d7-cca1-4b6d-93cd-f71b1b2b64c5",
+      "name": "Aquaman",
+      "description": "dsadas",
+      "element": "earth"
+    },
+    {
+      "id": "fa9956bc-5b28-4de0-941a-a499db40be3d",
+      "name": "dad",
+      "description": "sdasd",
+      "element": "DEFAULT"
+    },
+    {
+      "id": "88359a37-8fe7-4ae3-8476-23908d7ac6dc",
+      "name": "sdadas",
+      "description": "sdadsa",
       "element": "fire"
     },
     {
-      "id": "88d2131f-1294-4a64-85a1-c6359e152128",
-      "name": "test",
-      "description": "123",
-      "element": "fire"
+      "id": "bfc239dd-c575-4c32-ab6b-394dc167511d",
+      "name": "sdads",
+      "description": "dsadsa",
+      "element": "earth"
+    },
+    {
+      "id": "dbcfe118-93d6-4e05-b14c-3cb319fda8d2",
+      "name": "dsadasd",
+      "description": "dsadasd",
+      "element": "wind"
+    },
+    {
+      "id": "17541ced-0dd6-42f5-b671-5e9d5bb9bb2d",
+      "name": "dsadsa",
+      "description": "sdadas",
+      "element": "wind"
+    },
+    {
+      "id": "80493641-d0db-483e-934e-781cb61bce4e",
+      "name": "svvbrr",
+      "description": "bthtrhtr",
+      "element": "DEFAULT"
     }
   ],
   "filters": [
