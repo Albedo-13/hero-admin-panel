@@ -24,7 +24,6 @@ const HeroesAddForm = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log('onSubmit');
 
     const newHero = {
       id: uuidv4(),
@@ -46,9 +45,6 @@ const HeroesAddForm = () => {
   }
 
   const renderSelectList = (filters) => {
-
-    console.log("filters: ", filters);
-
     return (
       <select
         required
