@@ -1,6 +1,9 @@
 // Дополнительно:
 // TODO: Валидация полей формы
 // TODO: Анимации
+// TODO: error handling
+// TODO: Spinners & http hook
+
 
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
