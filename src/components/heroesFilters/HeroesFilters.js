@@ -1,4 +1,3 @@
-
 // Задача для этого компонента:
 // Фильтры должны формироваться на основании загруженных данных
 // Фильтры должны отображать только нужных героев при выборе
@@ -8,6 +7,7 @@
 
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import classNames from "classnames";
 
 import { useHttp } from "../../hooks/http.hook";
 import { filtersFetched, filtersFetching, filtersFetchingError, activeFilterChanged } from "../../actions";
@@ -15,7 +15,7 @@ import { filtersFetched, filtersFetching, filtersFetchingError, activeFilterChan
 const HeroesFilters = () => {
   const { request } = useHttp();
   const dispatch = useDispatch();
-  const { filters } = useSelector(state => state);
+  const { filters, activeFilter } = useSelector((state) => state);
 
   useEffect(() => {
     dispatch(filtersFetching());
@@ -27,29 +27,29 @@ const HeroesFilters = () => {
 
   const onFilterClick = (name) => {
     dispatch(activeFilterChanged(name));
-    
-  }
+  };
 
   const renderFiltersList = () => {
-    return filters.map(({ name, label, classname }) => 
-      <button 
-        onClick={() => onFilterClick(name)} 
-        name={name} 
-        key={name} 
-        className={classname}
-        >{label}</button>);
-  }
+    return filters.map(({ name, label, classname }) => (
+      <button
+        onClick={() => onFilterClick(name)}
+        name={name}
+        key={name}
+        className={classNames(classname, { active: activeFilter === name })}
+      >
+        {label}
+      </button>
+    ));
+  };
 
   return (
     <div className="card shadow-lg mt-4">
       <div className="card-body">
         <p className="card-text">Отфильтруйте героев по элементам</p>
-        <div className="btn-group">
-          {renderFiltersList()}
-        </div>
+        <div className="btn-group">{renderFiltersList()}</div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default HeroesFilters;

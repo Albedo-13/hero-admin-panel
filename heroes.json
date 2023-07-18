@@ -19,18 +19,6 @@
       "element": "water"
     },
     {
-      "id": "024893d1-3f9b-415a-a9a6-d12d13afb6e6",
-      "name": "231321",
-      "description": "dsadsa",
-      "element": "fire"
-    },
-    {
-      "id": "3798c26a-cb9d-4520-9c71-e1a9b7256acc",
-      "name": "dsadasd",
-      "description": "dsad",
-      "element": "wind"
-    },
-    {
       "id": "971d15d7-cca1-4b6d-93cd-f71b1b2b64c5",
       "name": "Aquaman",
       "description": "dsadas",
@@ -67,12 +55,6 @@
       "element": "DEFAULT"
     },
     {
-      "id": "2ab5e32c-05a9-4736-8c12-a7c7b277aab3",
-      "name": "1",
-      "description": "1",
-      "element": "DEFAULT"
-    },
-    {
       "id": "818eb93c-83ed-474a-af60-67e157aff9bb",
       "name": "1",
       "description": "1",
@@ -95,12 +77,6 @@
       "name": "1231",
       "description": "123",
       "element": "DEFAULT"
-    },
-    {
-      "id": "7ce371c6-830c-4fda-8e9a-8219014edb0f",
-      "name": "4214214",
-      "description": "4241",
-      "element": "fire"
     }
   ],
   "filters": [
