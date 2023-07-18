@@ -14,24 +14,34 @@ import { useDispatch } from "react-redux";
 import { v4 as uuidv4 } from 'uuid';
 
 import { heroCreated } from "../../actions";
+import { useHttp } from "../../hooks/http.hook";
 
 const HeroesAddForm = () => {
   const dispatch = useDispatch();
+  const { request } = useHttp();
 
   const onSubmit = (e) => {
     e.preventDefault();
     console.log('onSubmit');
-    
-    console.log(e.target.name.value);
+
     const newHero = {
       id: uuidv4(),
       name: e.target.name.value,
       description: e.target.text.value,
       element: e.target.element.value,
     };
-    console.log(newHero);
-    dispatch(heroCreated(newHero));
-  } 
+
+    request("http://localhost:3001/heroes", "POST", JSON.stringify(newHero))
+      .then((data) => dispatch(heroCreated(data)))
+      .then(() => clearFormFields(e))
+      .then(err => console.log(err));
+  }
+
+  const clearFormFields = (e) => {
+    e.target.name.value = "";
+    e.target.text.value = "";
+    e.target.element.value = "DEFAULT";
+  }
 
   return (
     <form onSubmit={(e) => onSubmit(e)} className="border p-4 shadow-lg rounded">

@@ -17,6 +17,24 @@
       "name": "Неизвестный герой",
       "description": "Скрывающийся в тени",
       "element": "wind"
+    },
+    {
+      "id": "89027a3d-36f3-49f0-91e1-8018a44112a8",
+      "name": "dada",
+      "description": "dad",
+      "element": "DEFAULT"
+    },
+    {
+      "id": "04a4aabc-2df2-4f86-b233-6a907218396f",
+      "name": "dada",
+      "description": "dad",
+      "element": "fire"
+    },
+    {
+      "id": "e09bb68d-b742-47f3-a4dd-380f5552302d",
+      "name": "Aquaman",
+      "description": "dsdaadsa",
+      "element": "earth"
     }
   ],
   "filters": [
