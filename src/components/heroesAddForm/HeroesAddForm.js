@@ -36,8 +36,6 @@ const HeroesAddForm = () => {
   };
 
   const renderSelectList = (filters) => {
-    console.log(filters);
-
     const optionsList = filters.map(({ name, label }) => {
       // eslint-disable-next-line array-callback-return
       if (name === "DEFAULT") return;
