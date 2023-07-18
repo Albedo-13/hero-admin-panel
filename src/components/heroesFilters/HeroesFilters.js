@@ -6,17 +6,50 @@
 // Изменять json-файл для удобства МОЖНО!
 // Представьте, что вы попросили бэкенд-разработчика об этом
 
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+
+import { useHttp } from "../../hooks/http.hook";
+import { filtersFetched, filtersFetching, filtersFetchingError, activeFilterChanged } from "../../actions";
+
 const HeroesFilters = () => {
+  const { request } = useHttp();
+  const dispatch = useDispatch();
+  const { filters } = useSelector(state => state);
+
+  useEffect(() => {
+    dispatch(filtersFetching());
+    request("http://localhost:3001/filters")
+      .then((data) => dispatch(filtersFetched(data)))
+      .catch(() => dispatch(filtersFetchingError()));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const renderFiltersList = () => {
+    return filters.map(({ name, label, classname }) => {
+      return (
+        <button onClick={() => onFilterClick(name)} name={name} key={name} className={classname}>{label}</button>
+      );
+    });
+    // <button className="btn btn-outline-dark active">Все</button>
+    // <button className="btn btn-danger">Огонь</button>
+    // <button className="btn btn-primary">Вода</button>
+    // <button className="btn btn-success">Ветер</button>
+    // <button className="btn btn-secondary">Земля</button>
+  }
+
+  const onFilterClick = (name) => {
+    console.log(name);
+    dispatch(activeFilterChanged(name));
+
+  }
+
   return (
     <div className="card shadow-lg mt-4">
       <div className="card-body">
         <p className="card-text">Отфильтруйте героев по элементам</p>
         <div className="btn-group">
-          <button className="btn btn-outline-dark active">Все</button>
-          <button className="btn btn-danger">Огонь</button>
-          <button className="btn btn-primary">Вода</button>
-          <button className="btn btn-success">Ветер</button>
-          <button className="btn btn-secondary">Земля</button>
+          {renderFiltersList()}
         </div>
       </div>
     </div>

@@ -9,8 +9,9 @@
 // Дополнительно:
 // Элементы <option></option> желательно сформировать на базе
 // данных из фильтров
+// TODO: Валидация полей формы
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from 'uuid';
 
 import { heroCreated } from "../../actions";
@@ -19,6 +20,7 @@ import { useHttp } from "../../hooks/http.hook";
 const HeroesAddForm = () => {
   const dispatch = useDispatch();
   const { request } = useHttp();
+  const { filters } = useSelector(state => state);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -41,6 +43,26 @@ const HeroesAddForm = () => {
     e.target.name.value = "";
     e.target.text.value = "";
     e.target.element.value = "DEFAULT";
+  }
+
+  const renderSelectList = (filters) => {
+
+    console.log("filters: ", filters);
+
+    return (
+      <select
+        required
+        className="form-select"
+        id="element"
+        name="element"
+        defaultValue={"DEFAULT"}>
+        <option value="DEFAULT" disabled>Я владею элементом...</option>
+        <option value="fire">Огонь</option>
+        <option value="water">Вода</option>
+        <option value="wind">Ветер</option>
+        <option value="earth">Земля</option>
+      </select>
+    )
   }
 
   return (
@@ -69,18 +91,7 @@ const HeroesAddForm = () => {
 
       <div className="mb-3">
         <label htmlFor="element" className="form-label">Выбрать элемент героя</label>
-        <select
-          required
-          className="form-select"
-          id="element"
-          name="element"
-          defaultValue={"DEFAULT"}>
-          <option value="DEFAULT" disabled>Я владею элементом...</option>
-          <option value="fire">Огонь</option>
-          <option value="water">Вода</option>
-          <option value="wind">Ветер</option>
-          <option value="earth">Земля</option>
-        </select>
+        {renderSelectList(filters)}
       </div>
 
       <button type="submit" className="btn btn-primary">Создать</button>

@@ -1,47 +1,61 @@
 {
   "heroes": [
     {
-      "id": 1,
-      "name": "Первый герой",
-      "description": "Первый герой в рейтинге!",
-      "element": "fire"
-    },
-    {
-      "id": 3,
-      "name": "Морской герой",
-      "description": "Как аквамен, но не из DC",
-      "element": "water"
-    },
-    {
-      "id": 5,
-      "name": "Неизвестный герой",
-      "description": "Скрывающийся в тени",
-      "element": "wind"
-    },
-    {
-      "id": "89027a3d-36f3-49f0-91e1-8018a44112a8",
-      "name": "dada",
-      "description": "dad",
-      "element": "DEFAULT"
-    },
-    {
       "id": "04a4aabc-2df2-4f86-b233-6a907218396f",
       "name": "dada",
       "description": "dad",
       "element": "fire"
     },
     {
-      "id": "e09bb68d-b742-47f3-a4dd-380f5552302d",
-      "name": "Aquaman",
-      "description": "dsdaadsa",
-      "element": "earth"
+      "id": "3325f48c-3055-41c6-9567-9f56bbbb502b",
+      "name": "test",
+      "description": "test",
+      "element": "wind"
+    },
+    {
+      "id": "e41f03b7-c99b-4e33-ba7c-2762572b0cef",
+      "name": "test",
+      "description": "test",
+      "element": "wind"
+    },
+    {
+      "id": "88dde508-e4b9-48d5-88a1-7cc8b10d1320",
+      "name": "test",
+      "description": "test",
+      "element": "fire"
+    },
+    {
+      "id": "88d2131f-1294-4a64-85a1-c6359e152128",
+      "name": "test",
+      "description": "123",
+      "element": "fire"
     }
   ],
   "filters": [
-    "all",
-    "fire",
-    "water",
-    "wind",
-    "earth"
+    {
+      "name": "DEFAULT",
+      "label": "Все",
+      "classname": "btn btn-outline-dark active"
+    },
+    {
+      "name": "fire",
+      "label": "Огонь",
+      "classname": "btn btn-danger"
+    },
+    {
+      "name": "water",
+      "label": "Вода",
+      "classname": "btn btn-primary"
+    },
+    {
+      "name": "wind",
+      "label": "Воздух",
+      "classname": "btn btn-success"
+    },
+    {
+      "name": "earth",
+      "label": "Земля",
+      "classname": "btn btn-secondary"
+    }
   ]
 }
