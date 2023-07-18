@@ -17,9 +17,9 @@ export const heroesFetchingError = () => {
   }
 }
 
-export const heroDeleted = (heroes) => {
+export const heroDeleted = (id) => {
   return {
     type: 'HERO_DELETED',
-    payload: heroes
+    payload: id
   }
 }
