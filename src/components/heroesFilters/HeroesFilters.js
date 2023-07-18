@@ -25,14 +25,19 @@ const HeroesFilters = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const onFilterClick = (name) => {
+    dispatch(activeFilterChanged(name));
+    
+  }
+
   const renderFiltersList = () => {
-    return filters.map(({ name, label, classname }) =>
-      <button
-        onClick={() => dispatch(activeFilterChanged(name))}
-        name={name}
-        key={name}
+    return filters.map(({ name, label, classname }) => 
+      <button 
+        onClick={() => onFilterClick(name)} 
+        name={name} 
+        key={name} 
         className={classname}
-      >{label}</button>);
+        >{label}</button>);
   }
 
   return (

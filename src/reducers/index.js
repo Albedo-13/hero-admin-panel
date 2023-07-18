@@ -34,14 +34,18 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         heroes: newHeroesListOnDelete,
-        filteredHeroes: newHeroesListOnDelete.filter((hero) => hero.element === state.activeFilter),
+        filteredHeroes: state.activeFilter === "DEFAULT" 
+          ? newHeroesListOnDelete
+          : newHeroesListOnDelete.filter((hero) => hero.element === state.activeFilter),
       };
     case "HERO_CREATED":
       const newHeroesListOnCreate = state.heroes.concat(action.payload);
       return {
         ...state,
         heroes: newHeroesListOnCreate,
-        filteredHeroes: newHeroesListOnCreate.filter((hero) => hero.element === state.activeFilter),
+        filteredHeroes: state.activeFilter === "DEFAULT" 
+        ? newHeroesListOnCreate
+        : newHeroesListOnCreate.filter((hero) => hero.element === state.activeFilter),
       };
     case "FILTERS_FETCHING":
       return {
