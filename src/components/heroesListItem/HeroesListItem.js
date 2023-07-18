@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 
 import { heroDeleted } from '../../actions';
+import { useHttp } from "../../hooks/http.hook";
+import { heroesFetchingError } from '../../actions';
 
 const HeroesListItem = ({ id, name, description, element }) => {
   let elementClassName;
@@ -24,10 +26,15 @@ const HeroesListItem = ({ id, name, description, element }) => {
 
   const dispatch = useDispatch();
   const { heroes } = useSelector(state => state);
+  const { request } = useHttp();
 
   const handleDeleteButton = (heroes) => {
-    const filteredHeroes = heroes.filter((hero) => hero.id !== id);
-    dispatch(heroDeleted(filteredHeroes));
+    request(`http://localhost:3001/heroes/${id}`, "DELETE")
+      .then(() => {
+        const filteredHeroes = heroes.filter((hero) => hero.id !== id);
+        dispatch(heroDeleted(filteredHeroes));
+      })
+      .catch(() => dispatch(heroesFetchingError()));
   }
 
   return (
@@ -42,10 +49,10 @@ const HeroesListItem = ({ id, name, description, element }) => {
         <h3 className="card-title">{name}</h3>
         <p className="card-text">{description}</p>
       </div>
-      <span onClick={() => {
-        console.log("deleting");
-        handleDeleteButton(heroes);
-      }} className="position-absolute top-0 start-100 translate-middle badge border rounded-pill bg-light">
+      <span
+        onClick={() => handleDeleteButton(heroes)}
+        className="position-absolute top-0 start-100 translate-middle badge border rounded-pill bg-light"
+        style={{ cursor: 'pointer' }}>
         <button type="button" className="btn-close btn-close" aria-label="Close"></button>
       </span>
     </li>
