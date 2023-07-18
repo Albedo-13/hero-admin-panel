@@ -24,10 +24,16 @@ const reducer = (state = initialState, action) => {
       }
     case 'HERO_DELETED':
       const filteredHeroes = state.heroes.filter((hero) => hero.id !== action.payload);
-
       return {
         ...state,
-        heroes: filteredHeroes,
+        heroes: filteredHeroes
+      }
+    case 'HERO_CREATED':
+      const newHeroesList = state.heroes.concat(action.payload);
+      console.log(newHeroesList);
+      return {
+        ...state,
+        heroes: newHeroesList
       }
     default: return state
   }

@@ -3,16 +3,38 @@
 // Задача для этого компонента:
 // Реализовать создание нового героя с введенными данными. Он должен попадать
 // в общее состояние и отображаться в списке + фильтроваться
-// Уникальный идентификатор персонажа можно сгенерировать через uiid
+// Уникальный идентификатор персонажа можно сгенерировать через uuid
 // Усложненная задача:
 // Персонаж создается и в файле json при помощи метода POST
 // Дополнительно:
 // Элементы <option></option> желательно сформировать на базе
 // данных из фильтров
 
+import { useDispatch } from "react-redux";
+import { v4 as uuidv4 } from 'uuid';
+
+import { heroCreated } from "../../actions";
+
 const HeroesAddForm = () => {
+  const dispatch = useDispatch();
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    console.log('onSubmit');
+    
+    console.log(e.target.name.value);
+    const newHero = {
+      id: uuidv4(),
+      name: e.target.name.value,
+      description: e.target.text.value,
+      element: e.target.element.value,
+    };
+    console.log(newHero);
+    dispatch(heroCreated(newHero));
+  } 
+
   return (
-    <form className="border p-4 shadow-lg rounded">
+    <form onSubmit={(e) => onSubmit(e)} className="border p-4 shadow-lg rounded">
       <div className="mb-3">
         <label htmlFor="name" className="form-label fs-4">Имя нового героя</label>
         <input
@@ -41,8 +63,9 @@ const HeroesAddForm = () => {
           required
           className="form-select"
           id="element"
-          name="element">
-          <option >Я владею элементом...</option>
+          name="element"
+          defaultValue={"DEFAULT"}>
+          <option value="DEFAULT" disabled>Я владею элементом...</option>
           <option value="fire">Огонь</option>
           <option value="water">Вода</option>
           <option value="wind">Ветер</option>

@@ -28,7 +28,7 @@ const HeroesList = () => {
     request(`http://localhost:3001/heroes/${id}`, "DELETE")
       .then(() => dispatch(heroDeleted(id)))
       .catch(err => console.log(err));
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [request]);
 
   if (heroesLoadingStatus === "loading") {
@@ -44,14 +44,13 @@ const HeroesList = () => {
 
     return arr.map(({ id, ...props }) => {
       return <HeroesListItem
-        key={id} 
-        {...props} 
+        key={id}
+        {...props}
         onDelete={() => onDelete(id)} />
     })
   }
 
   const elements = renderHeroesList(heroes);
-  
   return (
     <ul>
       {elements}
