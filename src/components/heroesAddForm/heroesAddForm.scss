@@ -1,0 +1,14 @@
+.hero-add-form {
+  position: relative;
+}
+
+.error-message {
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.error-boundary {
+  border: 1px solid red !important;
+}

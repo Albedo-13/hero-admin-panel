@@ -1,5 +1,4 @@
 // Дополнительно:
-// TODO: Валидация полей формы
 // TODO: Анимации
 // TODO: error handling
 // TODO: Spinners & http hook
@@ -7,41 +6,41 @@
 
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
+import { useForm } from "react-hook-form";
+import classNames from "classnames";
 
 import { heroCreated } from "../../actions";
 import { useHttp } from "../../hooks/http.hook";
+
+import "./heroesAddForm.scss";
 
 const HeroesAddForm = () => {
   const dispatch = useDispatch();
   const { request } = useHttp();
   const { filters } = useSelector((state) => state);
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
-  const onSubmit = (e) => {
-    e.preventDefault();
+  const onSubmit = (data) => {
+    const { name, description, element } = data;
+    console.log(data);
 
     const newHero = {
       id: uuidv4(),
-      name: e.target.name.value,
-      description: e.target.text.value,
-      element: e.target.element.value,
+      name,
+      description,
+      element,
     };
 
     request("http://localhost:3001/heroes", "POST", JSON.stringify(newHero))
-      .then((data) => dispatch(heroCreated(data)))
-      .then(() => clearFormFields(e))
-      .then((err) => console.log(err));
-  };
-
-  const clearFormFields = (e) => {
-    e.target.name.value = "";
-    e.target.text.value = "";
-    e.target.element.value = "DEFAULT";
+      .then((newHero) => dispatch(heroCreated(newHero)))
+      .then(() => reset())
+      .catch((err) => console.log(err));
   };
 
   const renderSelectList = (filters) => {
     const optionsList = filters.map(({ name, label }) => {
       // eslint-disable-next-line array-callback-return
-      if (name === "DEFAULT") return;
+      if (name === "") return;
       return (
         <option key={name} value={name}>
           {label}
@@ -50,35 +49,50 @@ const HeroesAddForm = () => {
     });
 
     return (
-      <select required className="form-select" id="element" name="element" defaultValue={"DEFAULT"}>
-        <option value="DEFAULT" disabled>Я владею элементом...</option>
+      <select
+        {...register("element", { required: "Выберите элемент" })}
+        className={classNames("form-select", {"error-boundary": errors.element})}
+        id="element"
+        defaultValue={""}
+      >
+        <option value="" disabled>Я владею элементом...</option>
         {optionsList}
       </select>
     );
   };
 
+  console.log(errors) //! брать ошибку из formstate
   return (
-    <form onSubmit={(e) => onSubmit(e)} className="border p-4 shadow-lg rounded">
-      <div className="mb-3">
+    <form onSubmit={handleSubmit(onSubmit)} className="hero-add-form border p-4 shadow-lg rounded">
+      <div className="mb-4">
         <label htmlFor="name" className="form-label fs-4">Имя нового героя</label>
-        <input required type="text" name="name" className="form-control" id="name" placeholder="Как меня зовут?" />
+        <input
+          {...register("name", { required: "Заполните это поле" })}
+          type="text"
+          className={classNames("form-control", {"error-boundary": errors.name})}
+          id="name"
+          placeholder="Как меня зовут?"
+        />
+        <div className="error-message text-danger">{errors.name ? errors.name.message : null}</div>
       </div>
 
-      <div className="mb-3">
-        <label htmlFor="text" className="form-label fs-4">Описание</label>
+      <div className="mb-4">
+        <label htmlFor="description" className="form-label fs-4">Описание</label>
         <textarea
-          required
-          name="text"
-          className="form-control"
+          {...register("description", { required: "Заполните это поле" })}
+          className={classNames("form-control", {"error-boundary": errors.description})}
           id="text"
           placeholder="Что я умею?"
           style={{ height: "130px" }}
         />
+        <div className="error-message text-danger">{errors.description ? errors.description.message : null}</div>
+
       </div>
 
-      <div className="mb-3">
+      <div className="mb-4">
         <label htmlFor="element" className="form-label">Выбрать элемент героя</label>
         {renderSelectList(filters)}
+        <div className="error-message text-danger">{errors.element ? errors.element.message : null}</div>
       </div>
 
       <button type="submit" className="btn btn-primary">Создать</button>

@@ -4,7 +4,7 @@ const initialState = {
   filters: [],
   filtersLoadingStatus: "idle",
   filteredHeroes: [],
-  activeFilter: "DEFAULT",
+  activeFilter: "",
 };
 
 const reducer = (state = initialState, action) => {
@@ -20,7 +20,7 @@ const reducer = (state = initialState, action) => {
         heroes: action.payload,
         heroesLoadingStatus: "idle",
         filteredHeroes:
-          state.activeFilter === "DEFAULT"
+          state.activeFilter === ""
             ? action.payload
             : action.payload.filter((item) => item.element === state.activeFilter),
       };
@@ -35,7 +35,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         heroes: newHeroesListOnDelete,
         filteredHeroes:
-          state.activeFilter === "DEFAULT"
+          state.activeFilter === ""
             ? newHeroesListOnDelete
             : newHeroesListOnDelete.filter((hero) => hero.element === state.activeFilter),
       };
@@ -45,7 +45,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         heroes: newHeroesListOnCreate,
         filteredHeroes:
-          state.activeFilter === "DEFAULT"
+          state.activeFilter === ""
             ? newHeroesListOnCreate
             : newHeroesListOnCreate.filter((hero) => hero.element === state.activeFilter),
       };
@@ -71,7 +71,7 @@ const reducer = (state = initialState, action) => {
         filtersLoadingStatus: "idle",
         activeFilter: action.payload,
         filteredHeroes:
-          action.payload === "DEFAULT" ? state.heroes : state.heroes.filter((hero) => hero.element === action.payload),
+          action.payload === "" ? state.heroes : state.heroes.filter((hero) => hero.element === action.payload),
       };
     default:
       return state;

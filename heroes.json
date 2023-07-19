@@ -13,18 +13,6 @@
       "element": "fire"
     },
     {
-      "id": "37c68fd4-3a8b-4769-b1ae-d15ad790da8e",
-      "name": "321",
-      "description": "321",
-      "element": "water"
-    },
-    {
-      "id": "971d15d7-cca1-4b6d-93cd-f71b1b2b64c5",
-      "name": "Aquaman",
-      "description": "dsadas",
-      "element": "earth"
-    },
-    {
       "id": "dbcfe118-93d6-4e05-b14c-3cb319fda8d2",
       "name": "dsadasd",
       "description": "dsadasd",
@@ -40,12 +28,6 @@
       "id": "d8ae3034-6691-40e2-b352-846488295af8",
       "name": "sdadsa",
       "description": "sdad",
-      "element": "DEFAULT"
-    },
-    {
-      "id": "a55d469d-f052-441d-bfc2-4afb529f2ff6",
-      "name": "1",
-      "description": "1",
       "element": "DEFAULT"
     },
     {
@@ -67,12 +49,6 @@
       "element": "DEFAULT"
     },
     {
-      "id": "81a4b3e3-251f-49f2-8164-bae7767ddfa8",
-      "name": "1",
-      "description": "1",
-      "element": "DEFAULT"
-    },
-    {
       "id": "71bfaaed-fd0c-4894-b023-592db7571fde",
       "name": "1231",
       "description": "123",
@@ -89,11 +65,110 @@
       "name": "da",
       "description": "dada",
       "element": "DEFAULT"
+    },
+    {
+      "id": "123f739c-4066-4678-a9ab-43adb1d43716",
+      "name": "Aquaman",
+      "description": "fire and bones!",
+      "element": "earth"
+    },
+    {
+      "id": "cf2505b3-6482-4116-8949-8b54f6666ef7",
+      "name": "1",
+      "description": "1",
+      "element": "DEFAULT"
+    },
+    {
+      "id": "b6820c69-f330-4105-be0a-77bed7a2fcb7",
+      "name": "da",
+      "description": "da",
+      "element": "DEFAULT"
+    },
+    {
+      "id": "b991b8d1-f377-47d7-9c83-cf21b424f01a",
+      "name": "dada",
+      "description": "dada",
+      "element": "fire"
+    },
+    {
+      "id": "9de5815f-5ba4-4473-9efc-0991b8fdc436",
+      "name": "1",
+      "description": "1",
+      "element": "DEFAULT"
+    },
+    {
+      "id": "86919386-9ae3-4413-8363-92a312f4bfd9",
+      "name": "test",
+      "description": "test",
+      "element": "DEFAULT"
+    },
+    {
+      "id": "c6e28f43-8244-44ed-bf10-137736c5c462",
+      "name": "bibos",
+      "description": "ADIDAS",
+      "element": ""
+    },
+    {
+      "id": "3cd87ac2-a3b7-492a-9694-9342a8cef6e6",
+      "name": "BIBOS",
+      "description": "xaxaxaxax",
+      "element": "DEFAULT"
+    },
+    {
+      "id": "8a5b93d5-3e49-457c-841f-a28341b544db",
+      "name": "312",
+      "description": "32131",
+      "element": ""
+    },
+    {
+      "id": "6a576547-b05a-419c-a1a4-715b2b034a5b",
+      "name": "sadad",
+      "description": "dsadsa",
+      "element": ""
+    },
+    {
+      "id": "4b09f77c-d175-4372-a025-20d37de6f296",
+      "name": "ivan",
+      "element": "wind"
+    },
+    {
+      "id": "7ef5c4b2-002e-4029-8d12-fe869b050326",
+      "name": "dsadsa",
+      "element": "water"
+    },
+    {
+      "id": "bdcb23ab-87c9-4d78-99ce-adedb26ef02d",
+      "name": "dsdas",
+      "element": "fire"
+    },
+    {
+      "id": "3f02a937-fc41-4289-8f16-3a8778422ae4",
+      "name": "ivan",
+      "description": "ivan",
+      "element": "earth"
+    },
+    {
+      "id": "f46dcc37-b416-4e27-bbfc-2aa3d6126f49",
+      "name": "dada",
+      "description": "dsadsa",
+      "element": "fire"
+    },
+    {
+      "id": "3b1caefc-8469-417f-bfc4-7a86c19f70f3",
+      "name": "sadasd",
+      "description": "dsad",
+      "element": "fire"
+    },
+    {
+      "id": "1f2a1b76-9b48-4648-9284-7c765d4e570d",
+      "name": "вфывфывфвфв",
+      "description": "вф",
+      "element": "fire"
     }
   ],
   "filters": [
     {
-      "name": "DEFAULT",
+      "name": "",
       "label": "Все",
       "classname": "btn btn-warning"
     },
