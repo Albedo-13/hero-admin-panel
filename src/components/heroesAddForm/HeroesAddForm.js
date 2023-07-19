@@ -22,7 +22,6 @@ const HeroesAddForm = () => {
 
   const onSubmit = (data) => {
     const { name, description, element } = data;
-    console.log(data);
 
     const newHero = {
       id: uuidv4(),
@@ -61,7 +60,6 @@ const HeroesAddForm = () => {
     );
   };
 
-  console.log(errors) //! брать ошибку из formstate
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="hero-add-form border p-4 shadow-lg rounded">
       <div className="mb-4">
