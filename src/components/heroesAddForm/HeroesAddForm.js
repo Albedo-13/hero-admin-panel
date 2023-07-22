@@ -1,6 +1,3 @@
-// Дополнительно:
-// TODO: Анимации
-
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 import { useForm } from "react-hook-form";
@@ -54,7 +51,7 @@ const HeroesAddForm = () => {
     return (
       <select
         {...register("element", { required: "Выберите элемент" })}
-        className={classNames("form-select", {"error-boundary": errors.element})}
+        className={classNames("form-select", { "error-boundary": errors.element })}
         id="element"
         defaultValue={""}
       >
@@ -71,7 +68,7 @@ const HeroesAddForm = () => {
         <input
           {...register("name", { required: "Заполните это поле" })}
           type="text"
-          className={classNames("form-control", {"error-boundary": errors.name})}
+          className={classNames("form-control", { "error-boundary": errors.name })}
           id="name"
           placeholder="Как меня зовут?"
         />
@@ -82,7 +79,7 @@ const HeroesAddForm = () => {
         <label htmlFor="description" className="form-label fs-4">Описание</label>
         <textarea
           {...register("description", { required: "Заполните это поле" })}
-          className={classNames("form-control", {"error-boundary": errors.description})}
+          className={classNames("form-control", { "error-boundary": errors.description })}
           id="text"
           placeholder="Что я умею?"
           style={{ height: "130px" }}
