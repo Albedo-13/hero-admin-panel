@@ -1,8 +1,5 @@
 // Дополнительно:
 // TODO: Анимации
-// TODO: error handling
-// TODO: Spinners & http hook
-
 
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
@@ -13,11 +10,12 @@ import { heroCreated } from "../../actions";
 import { useHttp } from "../../hooks/http.hook";
 
 import "./heroesAddForm.scss";
+import Spinner from "../spinner/Spinner";
 
 const HeroesAddForm = () => {
   const dispatch = useDispatch();
   const { request } = useHttp();
-  const { filters } = useSelector((state) => state);
+  const { filters, filtersLoadingStatus } = useSelector((state) => state);
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
   const onSubmit = (data) => {
@@ -37,6 +35,12 @@ const HeroesAddForm = () => {
   };
 
   const renderSelectList = (filters) => {
+    if (filtersLoadingStatus === "loading") {
+      return <Spinner />
+    } else if (filtersLoadingStatus === "error") {
+      return <h5 className="card shadow-lg text-center text-danger p-3 mt-3">Ошибка загрузки</h5>;
+    }
+
     const optionsList = filters.map(({ name, label }) => {
       // eslint-disable-next-line array-callback-return
       if (name === "") return;

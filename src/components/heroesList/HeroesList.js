@@ -29,7 +29,7 @@ const HeroesList = () => {
   if (heroesLoadingStatus === "loading") {
     return <Spinner />;
   } else if (heroesLoadingStatus === "error") {
-    return <h5 className="text-center mt-5">Ошибка загрузки</h5>;
+    return <h5 className="card shadow-lg text-center text-danger p-3">Ошибка загрузки</h5>;
   }
 
   const renderHeroesList = (arr) => {

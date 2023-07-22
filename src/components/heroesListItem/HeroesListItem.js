@@ -1,6 +1,4 @@
 const HeroesListItem = ({ name, description, element, onDelete }) => {
-  // TODO?: Один источник правды для стилей?
-
   let elementClassName;
 
   switch (element) {

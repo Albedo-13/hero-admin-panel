@@ -4,11 +4,12 @@ import classNames from "classnames";
 
 import { useHttp } from "../../hooks/http.hook";
 import { filtersFetched, filtersFetching, filtersFetchingError, activeFilterChanged } from "../../actions";
+import Spinner from "../spinner/Spinner";
 
 const HeroesFilters = () => {
   const { request } = useHttp();
   const dispatch = useDispatch();
-  const { filters, activeFilter } = useSelector((state) => state);
+  const { filters, activeFilter, filtersLoadingStatus } = useSelector((state) => state);
 
   useEffect(() => {
     dispatch(filtersFetching());
@@ -21,6 +22,12 @@ const HeroesFilters = () => {
   const onFilterClick = (name) => {
     dispatch(activeFilterChanged(name));
   };
+
+  if (filtersLoadingStatus === "loading") {
+    return <Spinner />;
+  } else if (filtersLoadingStatus === "error") {
+    return <h5 className="card shadow-lg text-center text-danger p-3 mt-3">Ошибка загрузки</h5>;
+  }
 
   const renderFiltersList = () => {
     return filters.map(({ name, label, classname }) => (
