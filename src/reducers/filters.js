@@ -1,7 +1,6 @@
 const initialState = {
   filters: [],
   filtersLoadingStatus: "idle",
-  filteredHeroes: [],
   activeFilter: "",
 };
 
