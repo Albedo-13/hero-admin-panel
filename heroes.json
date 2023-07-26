@@ -13,22 +13,10 @@
       "element": "fire"
     },
     {
-      "id": "dbcfe118-93d6-4e05-b14c-3cb319fda8d2",
-      "name": "dsadasd",
-      "description": "dsadasd",
-      "element": "wind"
-    },
-    {
       "id": "17541ced-0dd6-42f5-b671-5e9d5bb9bb2d",
       "name": "dsadsa",
       "description": "sdadas",
       "element": "wind"
-    },
-    {
-      "id": "d8ae3034-6691-40e2-b352-846488295af8",
-      "name": "sdadsa",
-      "description": "sdad",
-      "element": "DEFAULT"
     },
     {
       "id": "771e627b-3787-44e2-b3fa-4e3e03653150",
@@ -71,12 +59,6 @@
       "name": "Aquaman",
       "description": "fire and bones!",
       "element": "earth"
-    },
-    {
-      "id": "cf2505b3-6482-4116-8949-8b54f6666ef7",
-      "name": "1",
-      "description": "1",
-      "element": "DEFAULT"
     },
     {
       "id": "b6820c69-f330-4105-be0a-77bed7a2fcb7",
@@ -212,6 +194,12 @@
       "name": "d",
       "description": "d",
       "element": "fire"
+    },
+    {
+      "id": "9dfbc974-1fef-4a68-8c4f-46c984ec5565",
+      "name": "Ivan",
+      "description": "dadsd",
+      "element": "water"
     }
   ],
   "filters": [
