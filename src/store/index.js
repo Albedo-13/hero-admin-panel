@@ -1,5 +1,4 @@
-import { legacy_createStore as createStore, combineReducers, compose, applyMiddleware } from "redux";
-import ReduxThunk from "redux-thunk";
+import { configureStore } from "@reduxjs/toolkit";
 
 import heroesReducer from "../reducers/heroes";
 import filtersReducer from "../reducers/filters";
@@ -14,15 +13,13 @@ const stringMiddleware = () => (next) => (action) => {
   }
 };
 
-const store = createStore(
-  combineReducers({
+const store = configureStore({
+  reducer: {
     heroes: heroesReducer,
     filters: filtersReducer,
-  }),
-  compose(
-    applyMiddleware(ReduxThunk, stringMiddleware),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-  )
-);
+  },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(stringMiddleware),
+  devTools: process.env.NODE_ENV !== "production",
+});
 
 export default store;
