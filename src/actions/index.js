@@ -1,5 +1,5 @@
 import { createAction } from "@reduxjs/toolkit";
-import { filtersFetching, filtersFetched, filtersFetchingError } from "../slices/filtersSlice";
+// import { filtersFetching, filtersFetched, filtersFetchingError } from "../slices/filtersSlice";
 
 export const fetchHeroes = (request) => (dispatch) => {
   dispatch(heroesFetching());
@@ -8,12 +8,12 @@ export const fetchHeroes = (request) => (dispatch) => {
     .catch(() => dispatch(heroesFetchingError()));
 }
 
-export const fetchFilters = (request) => (dispatch) => {
-  dispatch(filtersFetching());
-  request("http://localhost:3001/filters")
-    .then((data) => dispatch(filtersFetched(data)))
-    .catch(() => dispatch(filtersFetchingError()));
-}
+// export const fetchFilters = (request) => (dispatch) => {
+//   dispatch(filtersFetching());
+//   request("http://localhost:3001/filters")
+//     .then((data) => dispatch(filtersFetched(data)))
+//     .catch(() => dispatch(filtersFetchingError()));
+// }
 
 export const heroesFetching = createAction("HEROES_FETCHING");
 export const heroesFetched = createAction("HEROES_FETCHED");
