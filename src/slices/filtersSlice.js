@@ -40,4 +40,4 @@ const filtersSlice = createSlice({
 const { actions, reducer } = filtersSlice;
 
 export default reducer;
-export const { filtersFetching, filtersFetched, filtersFetchingError, activeFilterChanged } = actions;
+export const { activeFilterChanged } = actions;
