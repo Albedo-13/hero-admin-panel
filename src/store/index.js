@@ -2,7 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 
 import heroesReducer from "../reducers/heroes";
 // import filtersReducer from "../reducers/filters";
-import filters from "../slices/filtersSlice"
+import filters from "../slices/filtersSlice";
 
 const stringMiddleware = () => (next) => (action) => {
   if (typeof action === "string") {
